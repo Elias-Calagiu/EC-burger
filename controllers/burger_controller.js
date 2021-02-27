@@ -25,6 +25,8 @@ router.post("/api/burgers", function (req, res){
     burger.create([
         "burger_name", "isDevoured"
     ], [
+        console.log(req.body.burger_name),
+        console.log(req.body.isDevoured),
         req.body.burger_name, req.body.isDevoured
     ], function (result){
         res.json({
@@ -39,6 +41,7 @@ router.put("/api/burgers/:id", function(req,res){
     var condition = "id = " + req.params.id
 
     burger.update({
+        burger_name: req.body.burger_name,
         isDevoured: req.body.isDevoured,
     }, condition, function(result){
         if (result.changedRows == 0){
