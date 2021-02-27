@@ -2,6 +2,14 @@
     <div class="row">
         <div class="col-sm-4" id="burger-form">
             <h1>Eat-da-Burger</h1>
+            <h2>UnDevoured Burgers</h2>
+            <ul>
+                {{#each burgers}}
+                {{#unless isDevoured}}
+                {{> burgers/burger-block isDevoured=true}}
+                {{/unless}}
+                {{/each}}
+            </ul>
             <h3>Add Burger</h3>
         </div>
     </div>
