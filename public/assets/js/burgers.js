@@ -39,3 +39,17 @@ $(".create-form").on("click", function (event){
         }
     )
 })
+
+$(".delete").on("click", function (event){
+    var id = $(this).data("id")
+
+    // send delete request
+    $.ajax("/api/burgers/" + id, {
+        type: "DELETE"
+    }).then(
+        function(){
+            console.log("burger deleted");
+            location.reload()
+        }
+    )
+})
