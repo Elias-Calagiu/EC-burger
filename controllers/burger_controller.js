@@ -3,15 +3,15 @@ var express = require("express");
 var router = express.Router();
 
 //Import burger.js
-const burgers = require("../models/burger.js");
+const burger = require("../models/burger.js");
 
 
-// route to get all burgers
+// route to get all burger
 
 router.get("/", function(req, res){
-    burgers.all(function(data){
+    burger.all(function(data){
         var hbsObject = {
-            burgers: data
+            burger: data
         }
         console.log(hbsObject);
         res.render(("index", hbsObject))
@@ -20,8 +20,8 @@ router.get("/", function(req, res){
 
 // Route to add burger 
 
-router.post("/api/burgers", function (req, res){
-    burgers.create([
+router.post("/api/burger", function (req, res){
+    burger.create([
         "burger_name", "isDevoured"
     ], [
         req.body.burger_name, req.body.isDevoured
@@ -34,10 +34,10 @@ router.post("/api/burgers", function (req, res){
 
 // Route to update burger entry
 
-router.put("/api/burgers", function(req,res){
+router.put("/api/burger", function(req,res){
     var condition = "id = " + req.params.id
 
-    burgers.update({
+    burger.update({
         isDevoured: req.body.isDevoured,
     }, condition, function(result){
         if (result.changedRows == 0){
