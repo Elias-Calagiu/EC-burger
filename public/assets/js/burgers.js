@@ -20,4 +20,22 @@ $(function(){
     })
 })
 
-$(".")
+$(".create-form").on("click", function (event){
+    event.preventDefault()
+
+    var newBurger = {
+        name: $("#burger").val().trim(),
+        isDevoured: $("[name=isDevoured]:checked").val().trim()
+    }
+
+    // send post request
+    $.ajax("api/burgers", {
+        type: "POST",
+        data: newBurger
+    }).then(
+        function() {
+            console.log("new burger created");
+            location.reload();
+        }
+    )
+})
