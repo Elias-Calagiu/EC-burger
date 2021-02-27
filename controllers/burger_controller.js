@@ -3,7 +3,7 @@ var express = require("express");
 var router = express.Router();
 
 //Import burger.js
-const burger = require("../models/burger.js");
+const burger = require("../models/burger");
 
 
 // route to get all burger
@@ -11,7 +11,7 @@ const burger = require("../models/burger.js");
 router.get("/", function(req, res){
     burger.all(function(data){
         var hbsObject = {
-            burger: data
+            burgers: data
         }
         console.log(hbsObject);
         res.render(("index", hbsObject))
