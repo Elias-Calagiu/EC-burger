@@ -11,6 +11,13 @@ $(function(){
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: newDevouredState
-        })
+        }).then(
+            function() {
+                console.log("changed devoured to", newDevoured);
+                location.reload()
+            }
+        )
     })
 })
+
+$(".")
