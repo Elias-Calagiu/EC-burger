@@ -25,8 +25,8 @@ router.post("/api/burgers", function (req, res){
     burger.create([
         "burger_name", "isDevoured"
     ], [
-        console.log(req.body.burger_name),
-        console.log(req.body.isDevoured),
+        // console.log(req.body.burger_name),
+        // console.log(req.body.isDevoured),
         req.body.burger_name, req.body.isDevoured
     ], function (result){
         res.json({
