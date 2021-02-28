@@ -1,7 +1,7 @@
 $(function(){
     $(".change-devoured").on("click", function (event){
         var id = $(this).data("id")
-        var newDevoured = $(this).data("newdevoured")
+        var newDevoured = $(this).data("isDevoured")
 
         var newDevouredState = {
             isDevoured: newDevoured
@@ -13,18 +13,18 @@ $(function(){
             data: newDevouredState
         }).then(
             function() {
-                console.log("changed devoured to", newDevoured);
+                console.log("changed devoured to", newDevouredState);
                 location.reload()
             }
         )
     })
 })
 
-$(".create-form").on("click", function (event){
+$(".create-form").on("submit", function (event){
     event.preventDefault()
 
     var newBurger = {
-        name: $("#burger").val().trim(),
+        burger_name: $("#burger").val().trim(),
         isDevoured: $("[name=isDevoured]:checked").val().trim()
     }
 
